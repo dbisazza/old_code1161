@@ -53,7 +53,7 @@ def loops_1a():
     for x in range(0, 10):
         starlist[x] = '*'
 
-    print(starlist)
+    return(starlist)
     pass
 
 
@@ -65,6 +65,9 @@ def star_map():
     if it's even. Reuse the is odd function that you've already written.
     E.g.: ["!", "*", "!", "*", "!", "*", "!", "*", "!", "*"]
     """
+
+    return(map(lambda x: '*' if is_odd(x) else '!', range(0, 10)))
+
     pass
 
 
@@ -76,6 +79,12 @@ def loops_1c(number_of_items=5, symbol="#"):
     a string with exacly one symbol in it.
     E.g.: ['#', '#', '#', '#', '#']
     """
+
+    starlist = [0] * (number_of_items)
+    for x in range(0, number_of_items):
+        starlist[x] = symbol
+
+    return(starlist)
     pass
 
 
@@ -97,6 +106,10 @@ def loops_2():
             ['*', '*', '*', '*', '*', '*', '*', '*', '*', '*'],
           ]
     """
+    bigstar = [0] * 10
+    for x in range(0, 10):
+        bigstar[x] = (map(lambda x: '*', range(0, 10)))
+    return(bigstar)
     pass
 
 
@@ -121,6 +134,12 @@ def loops_3():
     TIP: notice that this needs to to return strings of numbers,
          so call str(number) to cast.
     """
+    risenumber = [0] * 10
+    inc = 0
+    for x in range(0, 10):
+        risenumber[x] = (map(lambda x: str(inc), range(0, 10)))
+        inc = x + 1
+    return(risenumber)
     pass
 
 
@@ -139,6 +158,10 @@ def loops_4():
       ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
     ]
     """
+    risenumber = [0] * 10
+    for x in range(0, 10):
+        risenumber[x] = (map(lambda x: str(x), range(0, 10)))
+    return(risenumber)
     pass
 
 
@@ -164,6 +187,16 @@ def loops_5():
         "There are {} green bottles".format(8)
     you'll come to see the pros and cons of each over time.
     """
+    coord = [0] * 10
+    inc = 0
+    i = '(i'
+    j = ', j'
+    b = ')'
+    for x in range(0, 10):
+        coord[x] = (map(lambda x: i + str(inc) + j + str(x) + b, range(0, 5)))
+        inc = x + 1
+    return(coord)
+    pass
     pass
 
 
@@ -187,6 +220,12 @@ def loops_6():
     You can use a variable.
     TIP: look out for the starting condition.
     """
+    wedge = [0] * 10
+    num = 1
+    for x in range(0, 10):
+        wedge[x] = (map(lambda x: str(x), range(0, num)))
+        num = num + 1
+    return(wedge)
     pass
 
 
@@ -211,6 +250,24 @@ def loops_7():
     This is a hard problem. Use lots of experimentation and draw
     lots of diagrams!
     """
+
+    pyramid = [0] * 5
+    sp = 4
+    sp2 = 5
+
+    def v(num):
+        if(num < sp or num >= sp2):
+            return True
+            pass
+        else:
+            return False
+            pass
+    for x in range(0, 5):
+        pyramid[x] = (map(lambda x: ' ' if(v(x)) else '*', range(0, 9)))
+        sp = sp - 1
+        sp2 = sp2 + 1
+
+    return(pyramid)
     pass
 
 
