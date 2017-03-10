@@ -50,10 +50,8 @@ def loops_1a():
     E.g.: ['*', '*', '*', '*', '*', '*', '*', '*', '*', '*']
     """
     starlist = [0] * 10
-    incr = 0
     for x in range(0, 10):
-        starlist[incr] = '*'
-        incr = incr + 1
+        starlist[x] = '*'
 
     print(starlist)
     pass
