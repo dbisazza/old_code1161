@@ -49,11 +49,7 @@ def loops_1a():
     return a list of 10 items, each one a string with exacly one star in it.
     E.g.: ['*', '*', '*', '*', '*', '*', '*', '*', '*', '*']
     """
-    starlist = [0] * 10
-    for x in range(0, 10):
-        starlist[x] = '*'
-
-    return(starlist)
+    return(map(lambda x: '*', range(0, 10)))
     pass
 
 

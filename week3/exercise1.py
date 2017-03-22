@@ -74,10 +74,10 @@ def stubborn_asker(low, high):
     until you get a number that you think is OK
     """
     Question = "Enter a number between "
-    my_number = int(raw_input("%s%s and %s :" % (Question, low, high)))
+    my_number = int(raw_input("%s%s and %s: " % (Question, low, high)))
 
     while not low <= my_number <= high:
-        my_number = int(raw_input("%s%s and %s :" % (Question, low, high)))
+        my_number = int(raw_input("%s%s and %s: " % (Question, low, high)))
     return(my_number)
 
 
@@ -89,16 +89,15 @@ def not_number_rejector(message):
     When you do get a number, return it.
     """
     Test = False
-    Question = message
-    Test2 = 0
+    Quest = "Please enter a number: "
     while Test is False:
         try:
-            my_number = raw_input("%s" % (Question))
-            Test2 = int(my_number)
             Test = True
-            return(Test2)
-        except ValueError:
-            print("That isn't a number!")
+            my_num = int(raw_input(Quest))
+            return(my_num)
+        except:
+            print("That's not a valid entry!")
+            Test = False
 
 
 def super_asker(low, high):
@@ -108,22 +107,17 @@ def super_asker(low, high):
     that does it all!
     """
     Test = False
-    my_num = "Test"
-    Test2 = 0
-    Question = "Enter a number between "
-
+    Quest = "Enter a number between "
+    lo = low
+    hi = high
     while Test is False:
         try:
-            my_num = 2
-            Test2 = int(my_num)
-            Test = True
-            my_num = int(raw_input("%s%s and %s:" % (Question, low, high)))
-            while not low <= my_num <= high:
-                my_num = int(raw_input("%s%s and %s:" % (Question, low, high)))
-        except ValueError:
-            print("That isn't a number!")
-            Test = False
-    return(str(Test2))
+            my_num = int(raw_input("%s%s and %s: " % (Quest, lo, hi)))
+            while not lo <= my_num <= hi:
+                my_num = int(raw_input("%s%s and %s: " % (Quest, low, high)))
+            return(my_num)
+        except:
+            print("That's not a valid entry!")
 
 
 if __name__ == "__main__":
