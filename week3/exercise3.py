@@ -4,6 +4,7 @@ Steps on the way to making your own guessing game.
 """
 from __future__ import division
 from __future__ import print_function
+from exercise1 import not_number_rejector
 import random
 
 
@@ -27,33 +28,33 @@ def advancedGuessingGame():
     """
 
     print("\nwelcome to the guessing game!")
-    lowerBound = raw_input("Enter an lower bound: ")
-    upperBound = raw_input("Enter an upper bound: ")
+    lowerBound = not_number_rejector("Enter a lower bound.")
+    upperBound = not_number_rejector("Enter a higher bound.")
+    while upperBound <= lowerBound:
+        upperBound = not_number_rejector("Your 2nd number must be higher!")
     print("OK then, a number between %s and %s ?" % (lowerBound, upperBound))
     upperBound = int(upperBound)
     lowerBound = int(lowerBound)
 
     actualNumber = random.randint(lowerBound, upperBound)
     guessed = False
+    print(actualNumber)
 
     def asknumber(lo, hi):
         Test = False
-        my_num = "Test"
+        testnum = 0
         Quest = "Enter a number between "
-
         while Test is False:
             try:
-                my_num = 2
-                Test2 = int(my_num)
                 Test = True
                 my_num = int(raw_input("%s%s and %s:" % (Quest, lo, hi)))
                 while not lo <= my_num <= hi:
                     my_num = int(raw_input("%s%s and %s:" % (Quest, lo, hi)))
+                testnum = int(my_num)
+                return(testnum)
             except ValueError:
                 print("That's not a valid entry!")
                 Test = False
-            return(Test2)
-            print("you guessed {},".format(Test2),)
 
     while not guessed:
         guessedNumber = asknumber(lowerBound, upperBound)
@@ -62,6 +63,7 @@ def advancedGuessingGame():
             guessed = True
         elif guessedNumber < actualNumber:
             print("too small, try again ")
+            print("You guessed " + str(guessedNumber))
         else:
             print("too big, try again   ")
     return "You got it!"

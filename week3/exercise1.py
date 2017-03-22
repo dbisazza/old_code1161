@@ -89,15 +89,16 @@ def not_number_rejector(message):
     When you do get a number, return it.
     """
     Test = False
-    Question = "Enter a number: "
+    Question = message
+    Test2 = 0
     while Test is False:
         try:
             my_number = raw_input("%s" % (Question))
             Test2 = int(my_number)
             Test = True
+            return(Test2)
         except ValueError:
             print("That isn't a number!")
-    return(str(Test2))
 
 
 def super_asker(low, high):
@@ -108,6 +109,7 @@ def super_asker(low, high):
     """
     Test = False
     my_num = "Test"
+    Test2 = 0
     Question = "Enter a number between "
 
     while Test is False:
