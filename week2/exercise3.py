@@ -254,10 +254,8 @@ def loops_7():
     def v(num):
         if(num < sp or num >= sp2):
             return True
-            pass
         else:
             return False
-            pass
     for x in range(0, 5):
         pyramid[x] = (map(lambda x: ' ' if(v(x)) else '*', range(0, 9)))
         sp = sp - 1

@@ -27,7 +27,8 @@ def success_is_relative():
     """
     # this depends on excecution context. Take a look at your CWD and remember
     # that it changes.
-    # print(path, CWD)
+    path = "week4/Trispokedovetiles(laser).gcode"
+    print(path, CWD)
     pass
 
 
