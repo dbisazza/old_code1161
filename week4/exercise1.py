@@ -95,14 +95,10 @@ def wordy_pyramid():
         url = "http://randomword.setgetgo.com/get.php?len="
         r = requests.get(url + str(length))
         return str(r.content)
+
     word_pyramid = []
-    complete = False
-    while not complete:
-        for x in range(3, 20, 2):
-            word_pyramid.append(get_word(x))
-        for x in range(20, 2, -2):
-            word_pyramid.append(get_word(x))
-            complete = True
+    word_pyramid += map(lambda x: get_word(x), range(3, 20, 2))
+    word_pyramid += map(lambda x: get_word(x), range(20, 2, -2))
     return(word_pyramid)
 
 
@@ -123,11 +119,11 @@ def wunderground():
     city = "Sydney"
     template = "{base}/{key}/conditions/q/{country}/{city}.json"
     url = template.format(base=base, key=api_key, country=country, city=city)
-    print(url)
     r = requests.get(url)
     the_json = json.loads(r.text)
     obs = the_json['current_observation']
     loc = obs['display_location']
+
     return {"state":           loc["state"],
             "latitude":        loc["latitude"],
             "longitude":       loc["longitude"],
@@ -148,8 +144,7 @@ def diarist():
          the test will have nothing to look at.
     """
     file_obj = open("week4/Trispokedovetiles(laser).gcode", 'r')
-    Contents = file_obj.read()
-    count = Contents.count("M10 P1")
+    count = file_obj.read().count("M10 P1")
     open("week4/lasers.pew", "w").write(str(count))
 
 
