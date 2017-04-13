@@ -50,7 +50,6 @@ def loops_1a():
     E.g.: ['*', '*', '*', '*', '*', '*', '*', '*', '*', '*']
     """
     return(map(lambda x: '*', range(0, 10)))
-    pass
 
 
 def star_map():
@@ -61,10 +60,7 @@ def star_map():
     if it's even. Reuse the is odd function that you've already written.
     E.g.: ["!", "*", "!", "*", "!", "*", "!", "*", "!", "*"]
     """
-
     return(map(lambda x: '*' if is_odd(x) else '!', range(0, 10)))
-
-    pass
 
 
 def loops_1c(number_of_items=5, symbol="#"):
@@ -75,7 +71,6 @@ def loops_1c(number_of_items=5, symbol="#"):
     a string with exacly one symbol in it.
     E.g.: ['#', '#', '#', '#', '#']
     """
-
     starlist = [0] * (number_of_items)
     for x in range(0, number_of_items):
         starlist[x] = symbol
@@ -246,7 +241,6 @@ def loops_7():
     This is a hard problem. Use lots of experimentation and draw
     lots of diagrams!
     """
-
     pyramid = [0] * 5
     sp = 4
     sp2 = 5
