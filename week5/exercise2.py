@@ -5,6 +5,7 @@ Exercises and examples to illustrate recursion.
 """
 from __future__ import division
 from __future__ import print_function
+import time
 import turtle
 
 
@@ -86,9 +87,9 @@ def abba(source="abba", guard=3):
 
                    abba
                     to
-               bbaaobaobbba
+               bba aob aob bba
                     to
-    aobaobbbabbaoaaobbbaoaaobaobaobbba
+    aob aob bba bba oa aob bba oa aob aob aob bba
                 and so on...
     """
     def apply_rules(letter):
@@ -97,16 +98,19 @@ def abba(source="abba", guard=3):
         You need to change these substitutions to make it work.
         """
         if letter == "a":
-            return "a"
+            return "bba"
         elif letter == "b":
-            return "b"
+            return "aob"
         elif letter == "o":
-            return "o"
+            return "oa"
         else:
             return letter
-
-    # write the rest of the function here
-    pass
+    new_string = source
+    for x in range(0, guard):
+        new_string = "".join(map(lambda x: apply_rules(new_string[x]),
+                             range(0, len(new_string))))
+    print(new_string)
+    return new_string
 
 
 def koch(t, order, size):
@@ -150,7 +154,18 @@ def square_koch(t, order, size):
 
     """
     trace = ""
-    # write the rest of the function here.
+    if order == 0:          # The base case is just a straight line
+        t.forward(size)
+    else:
+        trace += square_koch(t, order-1, size/3)   # Go 1/3 of the way
+        t.left(90)
+        trace += square_koch(t, order-1, size/3)
+        t.right(90)
+        trace += square_koch(t, order-1, size/3)
+        t.right(90)
+        trace += square_koch(t, order-1, size/3)
+        t.left(90)
+        trace += square_koch(t, order-1, size/3)
     return str(order) + trace
     pass
 
@@ -166,10 +181,13 @@ def draw_pointy(steps=4):
 
 
 if __name__ == '__main__':
+    print(draw_koch(drawing_method=square_koch, steps_deep=1))
     print(draw_koch(drawing_method=square_koch, steps_deep=2))
     print(draw_koch(drawing_method=square_koch, steps_deep=3))
     print(draw_koch(drawing_method=square_koch, steps_deep=4))
     print(draw_koch(drawing_method=koch, steps_deep=2))
+    time.sleep(3)
     print("AB:", abba())
     print("ID:", str(italian_dinner()))
+    print(abba())
     pass

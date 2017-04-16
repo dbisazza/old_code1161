@@ -42,7 +42,7 @@ def countdown(message, start, stop, completion_message):
     else:
         countdown = map(lambda x: message + " " + str(x), range(stop, start))
     countdown.append(completion_message)
-    return(countdown)
+    return countdown
 
 
 # TRIANGLES
@@ -89,11 +89,11 @@ def calculate_aspect(base, height):
     is a tall, wide or equal triangle.
     """
     if base == height:
-        return("equal")
+        return "equal"
     elif base < height:
-        return("tall")
+        return "tall"
     elif base > height:
-        return("wide")
+        return "wide"
     else:
         print("Wierdo")
 
@@ -206,20 +206,18 @@ def triangle_master(base,
                     "diagram": tell_me_about_this_right_triangle(dictionary,
                                                                  Both="Yes")}
     if return_diagram and return_dictionary:
-        return(both_message)
+        return both_message
     elif return_diagram:
-        return(tell_me_about_this_right_triangle(dictionary, Diag="Yes"))
+        return tell_me_about_this_right_triangle(dictionary, Diag="Yes")
     elif return_dictionary:
-        return({'facts': dictionary})
+        return {'facts': dictionary}
     else:
         print("You're an odd one, you don't want anything!")
 
 
 def wordy_pyramid():
     """The function creates an array which is then sent to other functions."""
-    word_list = []
-    word_list += map(lambda x: x, range(3, 20, 2))
-    word_list += map(lambda x: x, range(20, 2, -2))
+    word_list = range(3, 20, 2) + range(20, 2, -2)
     return list_of_words_with_lengths(word_list)
 
 
@@ -227,21 +225,17 @@ def get_a_word_of_length_n(length):
     """The function uses the url to fetch a word with the specified length."""
     url = "http://randomword.setgetgo.com/get.php?len="
     if 3 <= length <= 20:
-        try:
-            length = length*1
-            r = requests.get(url + str(length))
-            return str(r.content)
-        except TypeError:
-            pass
+        length = length*1
+        r = requests.get(url + str(length))
+        return str(r.content)
 
 
 def list_of_words_with_lengths(list_of_lengths):
     """The function creates a list of words through an array."""
     print(list_of_lengths)
-    items = len(list_of_lengths)
     word_list = []
-    for x in range(0, items):
-        word_list.append(get_a_word_of_length_n(list_of_lengths[x]))
+    for x in list_of_lengths:
+        word_list.append(get_a_word_of_length_n(x))
     return word_list
 
 
