@@ -150,12 +150,12 @@ def random_filler_text(number_of_words=200):
     randtext = make_filler_text_dictionary()
     import random
     paragraph = []
-    for x in range(1, 201):
+    for x in range(1, number_of_words + 1):
         randlen = randtext[random.randrange(3, 7)]
         randword = randlen[random.randrange(1, 3)]
         paragraph.append(randword)
     print(len(paragraph))
-    return " ".join(paragraph)
+    return str(" ".join(paragraph))
 
 
 def fast_filler(number_of_words=200):
@@ -170,9 +170,8 @@ def fast_filler(number_of_words=200):
     into and out of the file. Be careful when you read it back in, it'll
     convert integer keys to strings.
     """
-    file_obj = open("week4/Trispokedovetiles(laser).gcode", 'r')
-    count = file_obj.read().count("M10 P1")
-    open("week4/lasers.pew", "w").write(str(count))
+    dicton = open("week8/dict_racey.words", "w")
+    dicton.write(str(random_filler_text(number_of_words)))
 
 
 if __name__ == '__main__':
