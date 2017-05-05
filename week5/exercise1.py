@@ -38,7 +38,8 @@ def countdown(message, start, stop, completion_message):
     Counts down.
     """
     if stop > start:
-        countdown = map(lambda x: message + " " + str(x), range(start, stop))
+        countdown = map(lambda x: message + " " + str(x),
+                        range(start, stop))
     else:
         countdown = map(lambda x: message + " " + str(x), range(stop, start))
     countdown.append(completion_message)
