@@ -131,7 +131,8 @@ def make_filler_text_dictionary():
 
     filter_text = {}
     for x in range(3, 8):
-        filter_text[x] = map(lambda x: get_word(3), range(1, 4))
+        length = x
+        filter_text[x] = map(lambda x: get_word(length), range(1, 4))
     return filter_text
 
 
@@ -154,7 +155,6 @@ def random_filler_text(number_of_words=200):
         randlen = randtext[random.randrange(3, 7)]
         randword = randlen[random.randrange(1, 3)]
         paragraph.append(randword)
-    print(len(paragraph))
     return str(" ".join(paragraph))
 
 
@@ -170,9 +170,6 @@ def fast_filler(number_of_words=200):
     into and out of the file. Be careful when you read it back in, it'll
     convert integer keys to strings.
     """
-    dicton = open("week8/dict_racey.words", "w")
-    dicton.write(str(random_filler_text(number_of_words)))
-
 
 if __name__ == '__main__':
     print(greet())
