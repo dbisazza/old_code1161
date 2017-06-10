@@ -11,11 +11,8 @@ def is_odd(a_number):
     """
     if (a_number % 2 == 0):
         return False
-        pass
     else:
         return True
-        pass
-    pass
 
 
 def fix_it(moves=True, should_move=True):
@@ -39,7 +36,6 @@ def fix_it(moves=True, should_move=True):
             return("WD-40")
         else:
             return("No Problem")
-    pass
 
 
 def loops_1a():
@@ -76,7 +72,6 @@ def loops_1c(number_of_items=5, symbol="#"):
         starlist[x] = symbol
 
     return(starlist)
-    pass
 
 
 def loops_2():
@@ -101,7 +96,6 @@ def loops_2():
     for x in range(0, 10):
         bigstar[x] = (map(lambda x: '*', range(0, 10)))
     return(bigstar)
-    pass
 
 
 def loops_3():
@@ -131,7 +125,6 @@ def loops_3():
         risenumber[x] = (map(lambda x: str(inc), range(0, 10)))
         inc = x + 1
     return(risenumber)
-    pass
 
 
 def loops_4():
@@ -153,7 +146,6 @@ def loops_4():
     for x in range(0, 10):
         risenumber[x] = (map(lambda x: str(x), range(0, 10)))
     return(risenumber)
-    pass
 
 
 def loops_5():
@@ -187,8 +179,6 @@ def loops_5():
         coord[x] = (map(lambda x: i + str(inc) + j + str(x) + b, range(0, 5)))
         inc = x + 1
     return(coord)
-    pass
-    pass
 
 
 def loops_6():
@@ -217,7 +207,6 @@ def loops_6():
         wedge[x] = (map(lambda x: str(x), range(0, num)))
         num = num + 1
     return(wedge)
-    pass
 
 
 def loops_7():
@@ -256,7 +245,6 @@ def loops_7():
         sp2 = sp2 + 1
 
     return(pyramid)
-    pass
 
 
 def lp(some_kind_of_list, exercise_name):
