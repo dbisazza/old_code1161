@@ -92,7 +92,7 @@ def wordy_pyramid():
     TIP: to add an argument to a URL, use: ?argName=argVal e.g. ?len=
     """
     def get_word(length):
-        url = "http://randomword.setgetgo.com/get.php?len="
+        url = "http://setgetgo.com/randomword/get.php?len="
         r = requests.get(url + str(length))
         return str(r.content)
 

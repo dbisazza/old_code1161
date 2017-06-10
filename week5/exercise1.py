@@ -224,7 +224,7 @@ def wordy_pyramid():
 
 def get_a_word_of_length_n(length):
     """The function uses the url to fetch a word with the specified length."""
-    url = "http://randomword.setgetgo.com/get.php?len="
+    url = "http://setgetgo.com/randomword/get.php?len="
     if 3 <= length <= 20:
         length = length*1
         r = requests.get(url + str(length))
