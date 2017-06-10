@@ -157,17 +157,10 @@ def square_koch(t, order, size):
     if order == 0:          # The base case is just a straight line
         t.forward(size)
     else:
-        trace += square_koch(t, order-1, size/3)   # Go 1/3 of the way
-        t.left(90)
-        trace += square_koch(t, order-1, size/3)
-        t.right(90)
-        trace += square_koch(t, order-1, size/3)
-        t.right(90)
-        trace += square_koch(t, order-1, size/3)
-        t.left(90)
-        trace += square_koch(t, order-1, size/3)
+        for angle in [90, -90, -90, 90, 0]:
+            trace += square_koch(t, order-1, size/3)   # Go 1/3 of the way
+            t.left(angle)
     return str(order) + trace
-    pass
 
 
 def draw_square(steps=4):
